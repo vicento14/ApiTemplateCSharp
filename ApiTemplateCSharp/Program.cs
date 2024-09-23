@@ -36,6 +36,16 @@ namespace ApiTemplateCSharp
                     {
                         options.UseMySQL(config.GetConnectionString(DB_CONTEXT_CONNSTRING));
                     });
+                    services.AddCors(options =>
+                    {
+                        options.AddPolicy("AllowAllOrigins",
+                            builder =>
+                            {
+                                builder.AllowAnyOrigin()
+                                       .AllowAnyMethod()
+                                       .AllowAnyHeader();
+                            });
+                    });
                     services.AddControllers()
                     .ConfigureApiBehaviorOptions(options =>
                     {
