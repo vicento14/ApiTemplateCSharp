@@ -23,6 +23,8 @@ namespace ApiTemplateCSharp
 
             app.UseRouting();
 
+            app.UseCors("AllowAllOrigins"); // Use the CORS policy
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();
