@@ -1,5 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ApiTemplateCSharp.Converters;
+using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace ApiTemplateCSharp.Entities
 {
@@ -32,6 +35,7 @@ namespace ApiTemplateCSharp.Entities
         public string D3 { get; set; }
         [Column("date_updated")]
         [Display(Name = "DateUpdated")]
-        public string DateUpdated { get; set; }
+        [JsonConverter(typeof(DateTimeConverter))] // Use the custom converter here
+        public DateTime DateUpdated { get; set; }
     }
 }
